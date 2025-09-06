@@ -1,0 +1,280 @@
+/* 반응형 디스플레이 제어 CSS */
+
+/* 기본적으로 모든 버전 숨기기 */
+.desktop-version,
+.tablet-version,
+.mobile-version {
+  display: none;
+}
+
+/* 1440px 이상 (데스크톱) */
+@media (min-width: 769px) {
+  .desktop-version {
+    display: block !important;
+  }
+  .tablet-version,
+  .mobile-version {
+    display: none !important;
+  }
+}
+
+/* 768px 이하 (태블릿) */
+@media (max-width: 768px) and (min-width: 376px) {
+  .tablet-version {
+    display: block !important;
+  }
+  .desktop-version,
+  .mobile-version {
+    display: none !important;
+  }
+}
+
+/* 375px 이하 (모바일) */
+@media (max-width: 375px) {
+  .mobile-version {
+    display: block !important;
+  }
+  .desktop-version,
+  .tablet-version {
+    display: none !important;
+  }
+}
+
+/* 부드러운 전환 효과 */
+.desktop-version,
+.tablet-version,
+.mobile-version {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 반응형 이미지 최적화 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 반응형 컨테이너 */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+
+/* 반응형 타이포그래피 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 375px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 0.8rem;
+  }
+}
+
+/* 반응형 버튼 */
+@media (max-width: 768px) {
+  .button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* 반응형 그리드 */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 375px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* 반응형 네비게이션 */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .menu {
+    gap: 8px;
+  }
+}
+
+/* 반응형 여백 */
+@media (max-width: 768px) {
+  .section {
+    padding: 30px 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .section {
+    padding: 20px 0;
+  }
+}
+
+/* 반응형 푸터 */
+@media (max-width: 768px) {
+  footer {
+    padding: 30px 0;
+  }
+  footer .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  footer {
+    padding: 20px 0;
+  }
+  footer .row {
+    gap: 15px;
+  }
+}
+
+/* 반응형 로고 */
+@media (max-width: 768px) {
+  .logo {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 375px) {
+  .logo {
+    max-width: 100px;
+  }
+}
+
+/* 반응형 카드 */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .card {
+    margin-bottom: 15px;
+  }
+}
+
+/* 반응형 텍스트 정렬 */
+@media (max-width: 768px) {
+  .text-center {
+    text-align: center;
+  }
+}
+
+/* 반응형 숨김/표시 */
+@media (max-width: 768px) {
+  .hide-tablet {
+    display: none !important;
+  }
+  .show-tablet {
+    display: block !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .hide-mobile {
+    display: none !important;
+  }
+  .show-mobile {
+    display: block !important;
+  }
+}
+
+/* 반응형 스크롤 */
+@media (max-width: 768px) {
+  .scroll-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* 반응형 애니메이션 */
+@media (max-width: 768px) {
+  .animate {
+    animation-duration: 0.5s;
+  }
+}
+
+@media (max-width: 375px) {
+  .animate {
+    animation-duration: 0.3s;
+  }
+}
+
+/* 반응형 포커스 */
+@media (max-width: 768px) {
+  .button:focus,
+  .link:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+  }
+}
+
+/* 반응형 터치 타겟 */
+@media (max-width: 768px) {
+  .button,
+  .link {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* 반응형 로딩 */
+@media (max-width: 768px) {
+  .loading {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .loading {
+    font-size: 0.8rem;
+  }
+}
