@@ -1,10 +1,3 @@
-/* ==========================================================
-   1440 Desktop Stylesheet (cleaned structure, same visuals)
-   Sections: Base, Customer, Solutions, Security, Footer, GNB
-   Note: Only comments/structure were added for readability.
-         No visual changes intended.
-   ========================================================== */
-
 .landing-page {
     background-color: #ffffff;
     display: grid;
@@ -13,16 +6,14 @@
     width: 100vw;
   }
   
-  /* Base canvas */
   .landing-page .div {
     background-color: #ffffff;
     overflow: hidden;
     width: 1440px;
     height: 3099px;
-    position: absolute;
+    position: relative;
   }
   
-  /* ======================== Customer (Top) ======================== */
   .landing-page .customer {
     position: absolute;
     width: 1440px;
@@ -97,23 +88,6 @@
     margin-left: -0.50px;
     margin-right: -0.50px;
   }
-
-  /* Customer rotator layering and animation */
-  .landing-page .customer-rotator {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  .landing-page .customer-rotator .group {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 600ms ease-out;
-  }
-  .landing-page .customer-rotator .group.is-active {
-    opacity: 1;
-    position: relative; /* keep layout height from active group */
-  }
   
   .landing-page .group {
     position: relative;
@@ -144,11 +118,6 @@
     left: 35px;
     aspect-ratio: 3;
     object-fit: cover;
-  }
-
-  /* Specific fix: prevent side-cropping for KISA image */
-  .landing-page .webpage.webpage-contain {
-    object-fit: contain;
   }
   
   .landing-page .div-wrapper {
@@ -187,7 +156,6 @@
     object-fit: cover;
   }
   
-  /* ======================== Solutions ============================ */
   .landing-page .solution {
     position: absolute;
     width: 1440px;
@@ -364,14 +332,14 @@
     position: relative;
     align-self: stretch;
     margin-top: -0.62px;
-    font-family: var(--heading-5-font-family);
-    font-weight: var(--heading-5-font-weight);
+    font-family: var(--heading-6-font-family);
+    font-weight: var(--heading-6-font-weight);
     color: var(--primary-90);
-    font-size: var(--heading-5-font-size);
+    font-size: var(--heading-6-font-size);
     text-align: center;
-    letter-spacing: var(--heading-5-letter-spacing);
-    line-height: var(--heading-5-line-height);
-    font-style: var(--heading-5-font-style);
+    letter-spacing: var(--heading-6-letter-spacing);
+    line-height: var(--heading-6-line-height);
+    font-style: var(--heading-6-font-style);
   }
   
   .landing-page .metabase-logo-icon {
@@ -418,12 +386,12 @@
     position: relative;
     width: fit-content;
     margin-top: -0.77px;
-    font-family: var(--subtitle-m-font-family);
-    font-weight: var(--subtitle-m-font-weight);
+    font-family: "Pretendard-Medium", Helvetica;
+    font-weight: 500;
     color: var(--100);
-    font-size: var(--subtitle-m-font-size);
-    letter-spacing: var(--subtitle-m-letter-spacing);
-    line-height: var(--subtitle-m-line-height);
+    font-size: 15.4px;
+    letter-spacing: 0.38px;
+    line-height: 15.4px;
     white-space: nowrap;
   }
   
@@ -486,7 +454,7 @@
     width: 262.31px;
     height: 69.2px;
     margin-bottom: -4.30px;
-    object-fit: contain;
+    object-fit: cover;
   }
   
   .landing-page .category-wrapper {
@@ -542,14 +510,13 @@
     justify-content: center;
   }
   
-.landing-page .notion {
-  position: relative;
-  width: 262.16px;
-  height: 69.24px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
+  .landing-page .notion {
+    position: absolute;
+    width: 233px;
+    height: 68px;
+    top: 42px;
+    left: 44px;
+  }
   
   .landing-page .vector-2 {
     position: absolute;
@@ -646,7 +613,6 @@
     object-fit: cover;
   }
   
-  /* ======================== Security ============================= */
   .landing-page .view-5 {
     display: flex;
     flex-direction: column;
@@ -872,41 +838,38 @@
     background-size: 100% 100%;
   }
   
-  /* ======================== Footer =============================== */
   .landing-page .view-6 {
-  position: absolute;
-  width: 100%;
-  height: 200px;
-  top: 2899px;
-  left: 0;
-}
+    position: absolute;
+    width: 1440px;
+    height: 200px;
+    top: 2899px;
+    left: -1px;
+  }
   
   .landing-page .desktop-m-logo-left-wrapper {
     height: 200px;
   }
   
-.landing-page .desktop-m-logo-left {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  padding: 24px 80px;
-  position: relative;
-  background-color: var(--primary-90);
-}
+  .landing-page .desktop-m-logo-left {
+    display: flex;
+    flex-direction: column;
+    width: 1440px;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+    padding: 24px 80px;
+    position: relative;
+    background-color: var(--primary-90);
+  }
   
-.landing-page .top-2 {
-  display: flex;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  flex: 0 0 auto;
-}
+  .landing-page .top-2 {
+    display: flex;
+    width: 1280px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    flex: 0 0 auto;
+  }
   
   .landing-page .frame-14 {
     display: flex;
@@ -921,10 +884,9 @@
     position: relative;
     width: 184px;
     height: 128px;
-    background-image: url(../img/logo.png);
-    background-size: contain;
+    background-image: url(./img/logo.png);
+    background-size: cover;
     background-position: 50% 50%;
-    background-repeat: no-repeat;
   }
   
   .landing-page .p {
@@ -1009,7 +971,7 @@
     height: 341px;
     background: linear-gradient(
         180deg,
-        rgba(46, 140, 240, 1) -100%,
+        rgba(46, 140, 240, 1) 0%,
         rgba(255, 255, 255, 1) 100%
       ),
       linear-gradient(
@@ -1090,29 +1052,21 @@
     left: 1000px;
   }
   
-  /* ======================== Global Nav (GNB) ===================== */
   .landing-page .gnb {
     position: fixed;
-    width: 100%;
-    display: flex;
-    justify-content: center; /* center inner container */
-    align-items: center;
+    width: 1440px;
     height: 147px;
     top: 0;
     left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: var(--defaultwhite);
   }
   
   .landing-page .desktop-horizontal {
     display: flex;
     width: 1440px;
-    margin: 0 auto;
     align-items: center;
     gap: 48px;
     padding: 16px 80px;
-    position: absolute;
+    position: relative;
     background-color: var(--defaultwhite);
     border-bottom-width: 1px;
     border-bottom-style: solid;
@@ -1123,13 +1077,9 @@
     position: relative;
     width: 305px;
     height: 115px;
-    background-image: url(../img/logo2.png);
-    background-size: contain;
+    background-image: url(./img/logo-2.png);
+    background-size: cover;
     background-position: 50% 50%;
-    background-repeat: no-repeat;
-    flex: 0 0 auto; /* prevent flexbox shrinking */
-    min-width: 305px;
-    min-height: 115px;
   }
   
   .landing-page .frame-17 {
@@ -1209,38 +1159,5 @@
     letter-spacing: 0.50px;
     line-height: 16px;
     white-space: nowrap;
-  }
-  
-  /* ======================== Full-bleed backgrounds on wide screens ===================== */
-  @media (min-width: 1441px) {
-    /* Mark section containers as relative to host a full-width ::before */
-    .landing-page .view,
-    .landing-page .view-3,
-    .landing-page .section-text-wrapper,
-    .landing-page .view-4,
-    .landing-page .section-2,
-    .landing-page .view-5,
-    .landing-page .group-wrapper {
-      position: relative;
-    }
-
-    /* Extend their background to viewport width without changing layout width */
-    .landing-page .view::before,
-    .landing-page .view-3::before,
-    .landing-page .section-text-wrapper::before,
-    .landing-page .view-4::before,
-    .landing-page .section-2::before,
-    .landing-page .view-5::before,
-    .landing-page .group-wrapper::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100vw;
-      top: 0;
-      bottom: 0;
-      background: inherit; /* use the element's background color */
-      z-index: -1;
-    }
   }
   

@@ -70,10 +70,9 @@
   position: relative;
   width: 147.05px;
   height: 102.29px;
-  background-image: url(../img/logo.png);
-  background-size: contain;
+  background-image: url(./img/logo-2.png);
+  background-size: cover;
   background-position: 50% 50%;
-  background-repeat: no-repeat;
 }
 
 .landing-page .text-wrapper {
@@ -295,7 +294,7 @@
   height: 182px;
   background: linear-gradient(
       180deg,
-      rgba(46, 140, 240, 1) -100%,
+      rgba(46, 140, 240, 1) 0%,
       rgba(255, 255, 255, 1) 100%
     ),
     linear-gradient(
@@ -541,15 +540,15 @@
 .landing-page .div-2 {
   display: flex;
   flex-direction: column;
-  width: 209.36px;
-  height: 139.57px;
+  width: 208px;
+  height: 138.67px;
   align-items: center;
   justify-content: center;
-  gap: 17.45px;
-  padding: 13.96px 11.63px;
+  gap: 14.4px;
+  padding: 13.94px 11.61px;
   position: relative;
   background-color: #78788014;
-  border-radius: 9.36px;
+  border-radius: 9.34px;
   aspect-ratio: 1.5;
 }
 
@@ -568,14 +567,14 @@
   position: relative;
   align-self: stretch;
   margin-top: -0.36px;
-  /* Match 375 spec */
-  font-family: "Pretendard-Bold", Helvetica;
-  font-weight: 700;
+  font-family: var(--heading-6-font-family);
+  font-weight: var(--heading-6-font-weight);
   color: var(--primary-90);
-  font-size: 10.5px;
+  font-size: var(--heading-6-font-size);
   text-align: center;
-  letter-spacing: 0;
-  line-height: 12.6px;
+  letter-spacing: var(--heading-6-letter-spacing);
+  line-height: var(--heading-6-line-height);
+  font-style: var(--heading-6-font-style);
 }
 
 .landing-page .metabase-logo-icon {
@@ -587,12 +586,11 @@
 
 .landing-page .button {
   display: inline-flex;
-  height: 25.05px;
+  height: 25.01px;
   align-items: center;
   justify-content: center;
-  padding: 7.16px;
+  padding: 7.15px;
   position: relative;
-  flex-shrink: 0;
 }
 
 .landing-page .icon-jam-icons {
@@ -623,7 +621,6 @@
   position: relative;
   width: fit-content;
   margin-top: -0.45px;
-  /* Match 375 spec */
   font-family: "Pretendard-Medium", Helvetica;
   font-weight: 500;
   color: var(--100);
@@ -655,16 +652,15 @@
 .landing-page .category-2 {
   width: 186.88px;
   margin-top: -0.36px;
+  font-size: var(--heading-6-font-size);
+  line-height: var(--heading-6-line-height);
   position: relative;
+  font-family: var(--heading-6-font-family);
+  font-weight: var(--heading-6-font-weight);
   color: var(--primary-90);
   text-align: center;
-  /* match 1440 heading-6 */
-  font-family: var(--heading-6-font-family);
-  font-size: var(--heading-6-font-size);
-  font-style: var(--heading-6-font-style);
-  font-weight: var(--heading-6-font-weight);
-  line-height: var(--heading-6-line-height);
   letter-spacing: var(--heading-6-letter-spacing);
+  font-style: var(--heading-6-font-style);
 }
 
 .landing-page .download {
@@ -693,7 +689,7 @@
   width: 152.31px;
   height: 40.18px;
   margin-bottom: -2.72px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .landing-page .category-wrapper {
@@ -719,24 +715,19 @@
 .landing-page .div-3 {
   display: flex;
   flex-direction: column;
-  width: 209.36px;
-  height: 139.57px;
+  width: 208px;
+  height: 138.67px;
   align-items: center;
   justify-content: center;
-  gap: 17.45px;
-  padding: 13.96px 11.63px;
+  gap: 14.4px;
+  padding: 14.02px 11.21px;
   position: relative;
   background-color: #78788014;
-  border-radius: 9.36px;
+  border-radius: 9.34px;
   aspect-ratio: 1.5;
 }
 
 .landing-page .frame-9 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
   position: relative;
   width: 186.88px;
   height: 65.41px;
@@ -756,12 +747,11 @@
 }
 
 .landing-page .notion {
-  position: relative;
-  width: 152.22px;
-  height: 40.2px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
+  position: absolute;
+  width: 135px;
+  height: 39px;
+  top: 24px;
+  left: 26px;
 }
 
 .landing-page .vector-2 {
@@ -975,7 +965,6 @@
   position: relative;
   width: 138.44px;
   height: 29.56px;
-  object-fit: contain;
 }
 
 .landing-page .button-2 {
@@ -1035,7 +1024,6 @@
   width: 145.02px;
   height: 28.31px;
   aspect-ratio: 5.12;
-  object-fit: contain;
 }
 
 .landing-page .frame-13 {
@@ -1156,58 +1144,52 @@
 
 .landing-page .gnb {
   position: fixed;
-  width: 100%;
+  width: 768px;
   height: 118px;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 1000;
 }
 
 .landing-page .desktop-horizontal {
   display: flex;
   width: 768px;
-  padding: 12.8px 64px;
   align-items: center;
   gap: 38.4px;
+  padding: 12.8px 64px;
   position: relative;
-  background: var(--defaultwhite);
-  border-bottom: 0.8px solid var(--coolgray-20);
+  background-color: var(--defaultwhite);
+  border-bottom-width: 0.8px;
+  border-bottom-style: solid;
+  border-color: var(--coolgray-20);
 }
 
 .landing-page .logo-2 {
   position: relative;
-  display: flex;
   width: 244px;
   height: 92px;
-  align-items: flex-start;
-  gap: 3.2px;
-  background-image: url(../img/logo2.png);
-  background-size: contain;
-  background-position: left center; /* align image to layout start */
-  background-repeat: no-repeat;
-  flex-shrink: 0;
+  background-image: url(./img/logo.png);
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 .landing-page .frame-17 {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 12.8px; /* keep equal spacing to menu items */
+  gap: 19.2px;
   position: relative;
-  flex: 1 1 auto; /* take remaining space */
-  margin-left: auto; /* push to the right like 1440 */
-  white-space: nowrap;
+  flex: 1;
+  flex-grow: 1;
 }
 
 .landing-page .menu {
   display: flex;
-  width: auto; /* allow to fit within header */
+  width: 726.4px;
   align-items: center;
   justify-content: flex-end;
   gap: 12.8px;
   position: relative;
-  white-space: nowrap;
+  margin-left: -477.80px;
 }
 
 .landing-page .menu-item {
@@ -1268,30 +1250,3 @@
   line-height: 15.4px;
   white-space: nowrap;
 }
-/* Scale-down approach: keep 1440 layout, scale to 768 (0.5333x) */
-:root {
-  --scale-1440-to-768: 0.533333;
-}
-
-html, body {
-  overflow-x: hidden;
-}
-
-/* Scale the desktop layout only; tablet uses native 768 spec */
-.landing-page.desktop-version {
-  width: 1440px;
-  transform: scale(var(--scale-1440-to-768));
-  transform-origin: top left;
-}
-
-/* Ensure GNB of desktop layout is scaled consistently */
-.landing-page.desktop-version .gnb {
-  width: 1440px;
-  height: 147px;
-  left: 0;
-  top: 0;
-  transform: scale(var(--scale-1440-to-768));
-  transform-origin: top left;
-}
-
-/* Tablet desktop-horizontal uses native 768 width (see rule above) */
