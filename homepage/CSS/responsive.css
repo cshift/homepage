@@ -7,7 +7,7 @@
   display: none;
 }
 
-/* 1440px 이상 (데스크톱) */
+/* 769px 이상 (데스크톱) */
 @media (min-width: 769px) {
   .desktop-version {
     display: block !important;
@@ -18,7 +18,7 @@
   }
 }
 
-/* 768px 이하 (태블릿) */
+/* 376px ~ 768px (태블릿) */
 @media (max-width: 768px) and (min-width: 376px) {
   .tablet-version {
     display: block !important;
@@ -26,6 +26,14 @@
   .desktop-version,
   .mobile-version {
     display: none !important;
+  }
+  
+  /* 태블릿 버전에서 landing-page 클래스를 tablet-homepage로 변경 */
+  .tablet-version .landing-page {
+    display: none !important;
+  }
+  .tablet-version .tablet-homepage {
+    display: block !important;
   }
 }
 
@@ -277,4 +285,32 @@ img {
   .loading {
     font-size: 0.8rem;
   }
+}
+
+/* 고객사 로테이터 스타일 */
+.customer-rotator {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.customer-rotator .group {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.customer-rotator .group.is-active {
+  opacity: 1;
+}
+
+/* 고객사 이미지 최적화 */
+.webpage-contain {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }

@@ -36,16 +36,26 @@
   .mobile-homepage .desktop-vertical-not {
     display: flex;
     flex-direction: column;
-    width: 375px;
-    height: 213px;
+    width: 100%;
     align-items: flex-start;
     justify-content: center;
     gap: 16px;
-    padding: 24px 16px;
-    position: absolute;
+    padding: 0 16px; /* collapsed padding */
+    position: fixed;
     top: 80px;
     left: 0;
+    right: 0;
     background-color: var(--defaultwhite);
+    z-index: 1000;
+    overflow: hidden;
+    max-height: 0; /* accordion collapsed */
+    transition: max-height 200ms ease, padding 200ms ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .mobile-homepage .desktop-vertical-not.is-open {
+    padding: 16px; /* expanded padding */
+    max-height: 320px; /* enough to show all items */
   }
   
   .mobile-homepage .menu {
@@ -76,12 +86,12 @@
     position: relative;
     flex: 1;
     margin-top: -1.00px;
-    font-family: "Pretendard-Medium", Helvetica;
-    font-weight: 500;
+    font-family: var(--subtitle-s-font-family);
+    font-weight: var(--subtitle-s-font-weight);
     color: var(--coolgray-90);
-    font-size: 16px;
-    letter-spacing: 0;
-    line-height: 16px;
+    font-size: var(--subtitle-s-font-size);
+    letter-spacing: var(--subtitle-s-letter-spacing);
+    line-height: var(--subtitle-s-line-height);
   }
   
   .mobile-homepage .buttons-group {
@@ -150,9 +160,10 @@
     position: relative;
     width: 175px;
     height: 48px;
-    background-image: url(./img/image.png);
-    background-size: cover;
+    background-image: url(../img/logo.png);
+    background-size: contain;
     background-position: 50% 50%;
+    background-repeat: no-repeat;
   }
   
   .mobile-homepage .button-wrapper {
@@ -185,30 +196,35 @@
   
   .mobile-homepage .property-default {
     display: flex;
-    width: 375px;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     padding: 16px;
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: var(--defaultwhite);
+    z-index: 1000;
   }
   
   .mobile-homepage .logo-2 {
     position: relative;
     width: 175px;
     height: 48px;
-    background-image: url(./img/logo-2.png);
-    background-size: cover;
-    background-position: 50% 50%;
+    background-image: url(../img/logo2.png);
+    display: block;
+    background-size: contain; /* fit fully inside box */
+    background-position: left center; /* align like GNB layout */
+    background-repeat: no-repeat;
+    flex: 0 0 175px; /* prevent shrink in flex header */
   }
   
   .mobile-homepage .mobile {
     position: absolute;
     width: 375px;
     height: 3027px;
-    top: 0;
+    top: 80px; /* avoid overlap with fixed header */
     left: 0;
     overflow-y: scroll;
   }
@@ -222,11 +238,11 @@
     position: absolute;
     width: 375px;
     height: 227px;
-    top: 80px;
+    top: 0; /* start immediately below fixed GNB (mobile container already offset) */
     left: 0;
     background: linear-gradient(
         180deg,
-        rgba(46, 140, 240, 1) 0%,
+        rgba(46, 140, 240, 1) -100%,
         rgba(255, 255, 255, 1) 100%
       ),
       linear-gradient(
@@ -253,12 +269,13 @@
   .mobile-homepage .frame {
     display: flex;
     flex-direction: column;
-    width: 287px;
-    align-items: flex-start;
-    gap: 8.52px;
+    width: 314px;
+    align-items: center;
+    gap: 4.258px;
     position: absolute;
     top: 39px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   .mobile-homepage .main {
@@ -321,13 +338,13 @@
   }
   
   .mobile-homepage .span {
-    font-family: var(--body-XXS-font-family);
-    font-weight: var(--body-XXS-font-weight);
+    font-family: var(--body-xs-font-family);
+    font-weight: var(--body-xs-font-weight);
     color: #21272a;
-    font-size: var(--body-XXS-font-size);
-    letter-spacing: var(--body-XXS-letter-spacing);
-    line-height: var(--body-XXS-line-height);
-    font-style: var(--body-XXS-font-style);
+    font-size: var(--body-xs-font-size);
+    letter-spacing: var(--body-xs-letter-spacing);
+    line-height: var(--body-xs-line-height);
+    font-style: var(--body-xs-font-style);
   }
   
   .mobile-homepage .element {
@@ -588,13 +605,13 @@
     width: 100%;
   }
   
-  .mobile-homepage .starrocks-logo {
-    position: relative;
-    width: 152.55px;
-    height: 40.24px;
-    margin-bottom: -2.70px;
-    object-fit: cover;
-  }
+.mobile-homepage .starrocks-logo {
+  position: relative;
+  width: 152.55px;
+  height: 40.24px;
+  margin-bottom: -2.70px;
+  object-fit: contain;
+}
   
   .mobile-homepage .category-wrapper {
     position: relative;
@@ -631,6 +648,11 @@
   }
   
   .mobile-homepage .frame-5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
     position: relative;
     width: 187.18px;
     height: 65.51px;
@@ -649,13 +671,14 @@
     justify-content: center;
   }
   
-  .mobile-homepage .notion {
-    position: absolute;
-    width: 135px;
-    height: 39px;
-    top: 24px;
-    left: 26px;
-  }
+.mobile-homepage .notion {
+  position: relative;
+  width: 152.46px;
+  height: 40.27px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
   
   .mobile-homepage .img {
     position: absolute;
@@ -983,36 +1006,37 @@
     width: 150px;
     height: 45px;
     background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
   
   .mobile-homepage .webpage {
-    position: absolute;
-    width: 125px;
-    height: 42px;
-    top: 2px;
-    left: 13px;
-    aspect-ratio: 3;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
   
   .mobile-homepage .webpage-2 {
-    position: absolute;
-    width: 111px;
-    height: 37px;
-    top: 4px;
-    left: 20px;
-    aspect-ratio: 3;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
   
   .mobile-homepage .webpage-3 {
-    position: absolute;
-    width: 123px;
-    height: 41px;
-    top: 2px;
-    left: 14px;
-    aspect-ratio: 3;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
   
   .mobile-homepage .frame-wrapper {
@@ -1026,56 +1050,53 @@
     position: relative;
     width: 150px;
     height: 45px;
-    background-color: #ff7234;
+    background-color: #ffffff;
   }
   
   .mobile-homepage .webpage-4 {
-    position: absolute;
-    width: 135px;
-    height: 45px;
-    top: 0;
-    left: 8px;
-    aspect-ratio: 3;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
   }
   
   .mobile-homepage .webpage-5 {
-    position: absolute;
-    width: 118px;
-    height: 39px;
-    top: 3px;
-    left: 16px;
-    aspect-ratio: 3;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
   
   .mobile-homepage .webpage-6 {
-    position: absolute;
-    width: 121px;
-    height: 41px;
-    top: 2px;
-    left: 14px;
-    aspect-ratio: 3;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
   
   .mobile-homepage .webpage-7 {
-    position: absolute;
-    width: 136px;
-    height: 45px;
-    top: 0;
-    left: 7px;
-    aspect-ratio: 3.01;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
   
   .mobile-homepage .webpage-8 {
-    position: absolute;
-    width: 144px;
-    height: 25px;
-    top: 10px;
-    left: 3px;
-    aspect-ratio: 5.71;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
   
   .mobile-homepage .overlap-group-2 {
@@ -1126,10 +1147,10 @@
     font-family: "Pretendard-Regular", Helvetica;
     font-weight: 400;
     color: var(--defaultwhite);
-    font-size: 14px;
+    font-size: 10px;
     text-align: center;
     letter-spacing: 0;
-    line-height: 19.6px;
+    line-height: 100%;
   }
   
   .mobile-homepage .logo-3 {
