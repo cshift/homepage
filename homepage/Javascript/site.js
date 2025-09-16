@@ -154,6 +154,33 @@
     }, interval);
   }
 
+  // 태블릿 버전에서도 고객사 로테이터 초기화
+  function initAllCustomerRotators() {
+    var rotators = document.querySelectorAll('.customer-rotator');
+    rotators.forEach(function(rotator) {
+      var groups = Array.prototype.slice.call(rotator.querySelectorAll('.group'));
+      if (groups.length <= 1) return;
+
+      // Ensure only one active at start
+      groups.forEach(function (g, idx) {
+        if (idx === 0) g.classList.add('is-active');
+        else g.classList.remove('is-active');
+      });
+
+      var current = 0;
+      var dwell = 1500; // 보여주는 지연
+      var duration = 600; // 전환 시간
+      var interval = dwell + duration; // 총 사이클 시간
+
+      setInterval(function () {
+        var next = (current + 1) % groups.length;
+        groups[current].classList.remove('is-active');
+        groups[next].classList.add('is-active');
+        current = next;
+      }, interval);
+    });
+  }
+
   function bindInquiryNavigation() {
     var CONTACT_URL = 'http://cshift.co/contact/contactus.php';
     // Search across GNB and mobile menu regions for text nodes that say '문의하기'
@@ -329,10 +356,15 @@
     tablet.style.display = 'none';
     mobile.style.display = 'none';
 
-    if (width >= 376) {
+    if (width > 768) {
+      // 769px 이상: 데스크톱 버전
       desktop.style.display = 'block';
       applyDesktopScale();
+    } else if (width > 375) {
+      // 376px ~ 768px: 태블릿 버전
+      tablet.style.display = 'block';
     } else {
+      // 375px 이하: 모바일 버전
       mobile.style.display = 'block';
     }
   }
@@ -358,6 +390,7 @@
     bindLogoToHome();
     bindSolutionHover();
     initCustomerRotator();
+    initAllCustomerRotators(); // 모든 버전의 고객사 로테이터 초기화
     bindInquiryNavigation();
     bindSolutionLinks();
     bindMobileAccordion();
